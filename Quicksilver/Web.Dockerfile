@@ -4,9 +4,7 @@ EXPOSE 8000
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0-buster-slim AS build
 WORKDIR /src
-COPY EPiServer.Reference.Commerce.Shared EPiServer.Reference.Commerce.Shared
 COPY EPiServer.Reference.Commerce.Site EPiServer.Reference.Commerce.Site
-RUN dotnet restore "EPiServer.Reference.Commerce.Shared/EPiServer.Reference.Commerce.Shared.csproj"
 RUN dotnet restore "EPiServer.Reference.Commerce.Site/EPiServer.Reference.Commerce.Site.csproj"
 RUN dotnet build "EPiServer.Reference.Commerce.Site/EPiServer.Reference.Commerce.Site.csproj" -c Release -o /app/build
 
